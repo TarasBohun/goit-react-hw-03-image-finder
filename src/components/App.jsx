@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Toaster } from 'react-hot-toast';
 
 import { ImageGallery } from './ImageGallery';
-// import { Loader } from './Loader';
 import { Searchbar } from './Searchbar';
 
 class App extends Component {
   state = {
     textSearch: '',
-    // isLoading: false,
+    startingPage: 1,
   };
 
   handleSubmit = textSearch => {
@@ -29,7 +28,10 @@ class App extends Component {
           }}
         />
         <Searchbar onSearch={this.handleSubmit} />
-        <ImageGallery value={this.state.textSearch} />
+        <ImageGallery
+          value={this.state.textSearch}
+          startingPage={this.state.startingPage}
+        />
       </div>
     );
   }
